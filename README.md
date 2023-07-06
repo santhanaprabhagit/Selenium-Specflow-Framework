@@ -14,7 +14,7 @@
 
 ## Working with Ui-Test-Automation
 
-* Clone this project from Git 
+* Clone this project from Git path https://github.com/prabhadevarajgit/Ui-Test-Automation.git
 * Build your project and ensure the build is success.
 * Refer appsettings.json file to update rge credentials/url to work
 * Open Test explorer and Run test
