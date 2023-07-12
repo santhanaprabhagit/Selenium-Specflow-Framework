@@ -3,9 +3,9 @@ using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using NUnit.Framework;
 using Microsoft.Extensions.Configuration;
-using UiTest.Pages;
+using Ngr.Ui_Tests.Pages;
 
-namespace UiTest.StepDefinitions
+namespace Ngr.Ui_Tests.StepDefinitions
 {
     [Binding]
     public sealed class LoginPageStepDefinitions

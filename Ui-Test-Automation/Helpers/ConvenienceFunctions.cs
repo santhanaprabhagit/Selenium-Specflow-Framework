@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace UiTest.Helpers
+namespace Ngr.Ui_Tests.Helpers
 {
     public static class ConvenienceFunctions
     {

@@ -13,7 +13,7 @@ using Codeuctivity;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace UiTest.Helpers
+namespace Ngr.Ui_Tests.Helpers
 {
     public static class WebDriverHelpers
     {

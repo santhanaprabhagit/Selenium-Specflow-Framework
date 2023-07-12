@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace UiTest.Helpers
+namespace Ngr.Ui_Tests.Helpers
 {
     public static class WaitHelper
     {

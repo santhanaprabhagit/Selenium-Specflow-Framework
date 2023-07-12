@@ -1,11 +1,9 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using NUnit.Framework;
-using Microsoft.Extensions.Configuration;
-using UiTest.Pages;
+using Ngr.Ui_Tests.Pages;
 
-namespace Ui_Test.StepDefinitions
+namespace Ngr.Ui_Tests.StepDefinitions
 {
     [Binding]
     public sealed class MainPageStepDefinitions

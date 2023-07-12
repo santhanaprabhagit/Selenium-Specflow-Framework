@@ -1,10 +1,10 @@
 using System;
 using Microsoft.Extensions.Configuration;
+using Ngr.Ui_Tests.Helpers;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Infrastructure;
-using UiTest.Helpers;
 
-namespace UiTest
+namespace Ngr.Ui_Tests
 {
     [Binding]
     public sealed class Hooks1

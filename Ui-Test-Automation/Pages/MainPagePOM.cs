@@ -1,10 +1,9 @@
 ﻿using SeleniumExtras.PageObjects;
-using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using UiTest.Helpers;
+using Ngr.Ui_Tests.Helpers;
 
-namespace UiTest.Pages
+namespace Ngr.Ui_Tests.Pages
 {
     class MainPagePOM
     {
