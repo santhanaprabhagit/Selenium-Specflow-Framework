@@ -16,9 +16,15 @@
 
 * Clone this project from Git path https://github.com/prabhadevarajgit/Ui-Test-Automation.git
 * Build your project and ensure the build is success.
-* Refer appsettings.json file to update rge credentials/url to work
-* Open Test explorer and Run test
-* Results will be stored into your local machine
+* Refer appsettings.json file to update below details to work based on need
+        * guiTestUserName
+        * guiTestUserPassword
+        * chomeWebDriverPath
+        * testScreenShotPath
+        * baseGUIUri
+* Build your project once again and ensure the build is success
+* Open Test explorer and Run tests
+* Results will be stored into your local machine ( Please check your Test Results folder within the project folder) 
 
 ## Adding new tests/feature file
 
