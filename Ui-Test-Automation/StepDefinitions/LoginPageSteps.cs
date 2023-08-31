@@ -4,25 +4,23 @@ using OpenQA.Selenium;
 using NUnit.Framework;
 using Microsoft.Extensions.Configuration;
 using Ngr.Ui_Tests.Pages;
+using Ngr.Ui_Tests.DataProviders;
 
 namespace Ngr.Ui_Tests.StepDefinitions
 {
     [Binding]
-    public sealed class LoginPageStepDefinitions
+    public sealed class LoginPageSteps
     {
         private readonly ScenarioContext _scenarioContext;
         private LoginPagePOM loginPagePOM;
         private MainPagePOM mainPagePOM;
-        private IConfiguration envConfig;
-        public LoginPageStepDefinitions(ScenarioContext scenarioContext)
+        private SettingsFileReader settingsFile;
+        public LoginPageSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
             loginPagePOM = new LoginPagePOM((IWebDriver)_scenarioContext["webDriver"]);
             mainPagePOM = new MainPagePOM((IWebDriver)_scenarioContext["webDriver"]);
-            envConfig = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appSettings.json")
-                .Build();
+            settingsFile = new SettingsFileReader();
         }
 
         [Given(@"User is login in using '([^']*)' account")]
@@ -34,12 +32,12 @@ namespace Ngr.Ui_Tests.StepDefinitions
             switch (accountType)
             {
                 case "Testuser":
-                    username = GetGUIUserSetting("guiTestUserName");
-                    password = GetGUIUserSetting("guiTestUserPassword");
+                    username = settingsFile.GetGUIUserSetting("guiTestUserName");
+                    password = settingsFile.GetGUIUserSetting("guiTestUserPassword");
                     break;
                 case "Nextuser":
-                    username = GetGUIUserSetting("guiAdvTestUserName");
-                    password = GetGUIUserSetting("guiAdvTestUserPassword");
+                    username = settingsFile.GetGUIUserSetting("guiAdvTestUserName");
+                    password = settingsFile.GetGUIUserSetting("guiAdvTestUserPassword");
                     break;
                 default:
                     Assert.Fail(accountType + " is not recognized user account type");
@@ -50,11 +48,6 @@ namespace Ngr.Ui_Tests.StepDefinitions
             loginPagePOM.enterLoginPassword(password);
             loginPagePOM.submitUserLogin();
             Assert.IsTrue(mainPagePOM.getLoggedInUserText().Contains("Logged in"), "User is not logged in");
-        }
-
-        private string GetGUIUserSetting(string paramKey)
-        {
-            return envConfig.GetSection("guiUserSettings").GetValue<string>(paramKey);
         }
     }
 }
