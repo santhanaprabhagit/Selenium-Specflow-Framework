@@ -11,20 +11,12 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using Codeuctivity;
 using System.IO;
-using Microsoft.Extensions.Configuration;
+using OpenQA.Selenium.Edge;
 
 namespace Ngr.Ui_Tests.Helpers
 {
     public static class WebDriverHelpers
     {
-        private static IConfiguration config;
-        static WebDriverHelpers()
-        {
-            config = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json")
-                .Build();
-        }
         public static void createWebDriver(ScenarioContext scenContent, string targetBrowser, string chromeWDPath, string firefoxWDPath)
         {
             IWebDriver webDriver = null;
@@ -40,7 +32,7 @@ namespace Ngr.Ui_Tests.Helpers
                     switch (targetBrowser.ToLower())
                     {
                         case "chrome":
-                            webDriver = new ChromeDriver(chromeWDPath);
+                            webDriver = new ChromeDriver();
                             break;
                         case "firefox":
                             var firefoxOptions = new FirefoxOptions();
@@ -56,6 +48,9 @@ namespace Ngr.Ui_Tests.Helpers
                             FirefoxDriverService _firefoxDriverService = FirefoxDriverService.CreateDefaultService(firefoxWDPath, webDriverFileName);
                             _firefoxDriverService.Host = "::1";
                             webDriver = new FirefoxDriver(_firefoxDriverService, firefoxOptions);
+                            break;
+                        case "edge":
+                            webDriver = new EdgeDriver();
                             break;
                         case "safari":
                             SafariOptions options = new SafariOptions();
@@ -231,11 +226,6 @@ namespace Ngr.Ui_Tests.Helpers
             return compResult.MeanError <= tolerance;
         }
 
-        public static string getBaseUrl()
-        {
-            string baseUrl = config.GetSection("guiEnvSettings").GetValue<string>("baseGUIUri");
-            return baseUrl;
-        }
         public static void destroyWebDriver(ScenarioContext scenContent)
         {
             IWebDriver webDriver;
