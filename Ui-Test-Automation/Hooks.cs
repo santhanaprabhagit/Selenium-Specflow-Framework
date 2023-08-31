@@ -7,8 +7,6 @@ using Ngr.Ui_Tests.DataProviders;
 using Ngr.Ui_Tests.Helpers;
 using TechTalk.SpecFlow;
 
-
-
 namespace Ngr.Ui_Tests
 {
     [Binding]
