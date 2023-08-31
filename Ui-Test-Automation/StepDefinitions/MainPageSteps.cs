@@ -2,17 +2,18 @@
 using OpenQA.Selenium;
 using NUnit.Framework;
 using Ngr.Ui_Tests.Pages;
+using System;
 
 namespace Ngr.Ui_Tests.StepDefinitions
 {
     [Binding]
-    public sealed class MainPageStepDefinitions
+    public sealed class MainPageSteps
     {
         private readonly ScenarioContext _scenarioContext;
         private LoginPagePOM loginPagePOM;
         private MainPagePOM mainPagePOM;
 
-        public MainPageStepDefinitions(ScenarioContext scenarioContext)
+        public MainPageSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
             mainPagePOM = new MainPagePOM((IWebDriver)_scenarioContext["webDriver"]);
