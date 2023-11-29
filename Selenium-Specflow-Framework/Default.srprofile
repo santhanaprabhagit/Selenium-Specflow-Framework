@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
-  <Settings projectName="Ngr.Ui-Tests" />
+  <Settings projectName="Self.Ui-Tests" />
   <Execution stopAfterFailures="100" testThreadCount="1" testSchedulingMode="Sequential" retryCount="1" retryFor="Failing" apartmentState="STA"/>
   <Environment  testThreadIsolation="SharedAppDomain" framework="net6.0"/>
   <TestAssemblyPaths>
